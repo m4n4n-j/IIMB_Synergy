@@ -77,9 +77,11 @@ export default function Onboarding() {
             .upsert({
                 id: user.id,
                 email: user.email,
-                ...formData,
+                full_name: formData.full_name,
+                program: formData.program as any, // Cast to any to match enum type if needed
                 year: parseInt(formData.year.toString()),
                 section: formData.section.toUpperCase(),
+                interests: formData.interests,
                 bio: formData.intent, // Mapping intent to bio for MVP
             })
 
@@ -112,6 +114,21 @@ export default function Onboarding() {
             </div>
 
             <form onSubmit={handleSubmit} className="px-6 space-y-8">
+
+                {/* Name Section */}
+                <div className="space-y-4">
+                    <h2 className="text-2xl font-bold text-gray-900">
+                        {formData.full_name ? `Hi, ${formData.full_name.split(' ')[0]}! 👋` : 'What should we call you?'}
+                    </h2>
+                    <input
+                        type="text"
+                        required
+                        value={formData.full_name}
+                        onChange={e => setFormData({ ...formData, full_name: e.target.value })}
+                        placeholder="Enter your full name"
+                        className="w-full p-4 text-lg border-2 border-gray-200 rounded-xl focus:border-[#B91C1C] focus:ring-0 outline-none transition-all"
+                    />
+                </div>
 
                 {/* Interests Section */}
                 <div className="space-y-4">
@@ -181,7 +198,6 @@ export default function Onboarding() {
 
                 {/* Hidden fields for MVP simplicity */}
                 <div className="hidden">
-                    <input type="text" value={formData.full_name} onChange={e => setFormData({ ...formData, full_name: e.target.value })} placeholder="Full Name" />
                     <input type="number" value={formData.year} onChange={e => setFormData({ ...formData, year: parseInt(e.target.value) })} placeholder="Year" />
                     <input type="text" value={formData.section} onChange={e => setFormData({ ...formData, section: e.target.value })} placeholder="Section" />
                 </div>

@@ -73,7 +73,7 @@ export default function Home() {
               type="email"
               required
               className="block w-full rounded-xl border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-              placeholder="name.rollnumber@iimb.ac.in"
+              placeholder="name.lastname.xx@iimb.ac.in"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
