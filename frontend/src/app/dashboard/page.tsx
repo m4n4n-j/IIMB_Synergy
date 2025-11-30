@@ -11,16 +11,6 @@ function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
 
-const DAYS = [
-    { label: 'M', date: '23' },
-    { label: 'T', date: '24' },
-    { label: 'W', date: '25' },
-    { label: 'Th', date: '26' },
-    { label: 'F', date: '27' },
-    { label: 'S', date: '28' },
-    { label: 'Su', date: '29' },
-]
-
 const ACTIVITY_ICONS = {
     'Coffee': Coffee,
     'Mess Lunch': Utensils,
@@ -52,6 +42,7 @@ export default function Dashboard() {
     const [selectedTime, setSelectedTime] = useState('13:00')
     const [showAvailabilitySheet, setShowAvailabilitySheet] = useState(false)
     const [selectedActivity, setSelectedActivity] = useState<string | null>(null)
+    const [currentWeekStart, setCurrentWeekStart] = useState(new Date())
 
     useEffect(() => {
         const getData = async () => {
@@ -87,10 +78,42 @@ export default function Dashboard() {
         getData()
     }, [router])
 
+    const getDaysForWeek = (startDate: Date) => {
+        const days = []
+        const start = new Date(startDate)
+        start.setDate(start.getDate() - start.getDay() + 1) // Start on Monday
+
+        for (let i = 0; i < 7; i++) {
+            const d = new Date(start)
+            d.setDate(start.getDate() + i)
+            days.push({
+                label: ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'][i],
+                date: d.getDate().toString(),
+                fullDate: d
+            })
+        }
+        return days
+    }
+
+    const days = getDaysForWeek(currentWeekStart)
+    const weekRange = `${days[0].fullDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${days[6].fullDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`
+
+    const handlePrevWeek = () => {
+        const newDate = new Date(currentWeekStart)
+        newDate.setDate(newDate.getDate() - 7)
+        setCurrentWeekStart(newDate)
+    }
+
+    const handleNextWeek = () => {
+        const newDate = new Date(currentWeekStart)
+        newDate.setDate(newDate.getDate() + 7)
+        setCurrentWeekStart(newDate)
+    }
+
     const handleSetAvailability = async () => {
         if (!selectedActivity || !user) return
 
-        const dayLabel = DAYS.find(d => d.label === selectedDay)?.label || 'Wednesday'
+        const dayLabel = days.find(d => d.label === selectedDay)?.label || 'Wednesday'
         const fullDayName = {
             'M': 'Monday', 'T': 'Tuesday', 'W': 'Wednesday', 'Th': 'Thursday', 'F': 'Friday', 'S': 'Saturday', 'Su': 'Sunday'
         }[dayLabel] || 'Wednesday'
@@ -178,13 +201,13 @@ export default function Dashboard() {
         <div className="min-h-screen bg-gray-50">
             {/* Header */}
             <div className="flex items-center justify-between p-4 bg-white shadow-sm">
-                <ChevronLeft className="h-6 w-6 text-gray-500" />
+                <ChevronLeft className="h-6 w-6 text-gray-500 cursor-pointer" onClick={handlePrevWeek} />
                 <h1 className="text-lg font-bold text-gray-900">Weekly Pulse</h1>
-                <ChevronRight className="h-6 w-6 text-gray-500" />
+                <ChevronRight className="h-6 w-6 text-gray-500 cursor-pointer" onClick={handleNextWeek} />
             </div>
 
             <div className="text-center py-6">
-                <h2 className="text-2xl font-bold text-gray-900">Oct 23 - Oct 29</h2>
+                <h2 className="text-2xl font-bold text-gray-900">{weekRange}</h2>
                 <p className="text-gray-500 text-sm mt-1">Mark your free slots. Matches are released every Sunday.</p>
             </div>
 
@@ -211,7 +234,7 @@ export default function Dashboard() {
 
             {/* Day Selector */}
             <div className="flex justify-between px-4 mb-8">
-                {DAYS.map(day => (
+                {days.map(day => (
                     <button
                         key={day.label}
                         onClick={() => setSelectedDay(day.label)}
@@ -221,6 +244,7 @@ export default function Dashboard() {
                         )}
                     >
                         <span className="text-xs font-medium">{day.label}</span>
+                        <span className="text-[10px] opacity-80">{day.date}</span>
                     </button>
                 ))}
             </div>
@@ -283,7 +307,7 @@ export default function Dashboard() {
                             <div className="flex-1">
                                 <label className="block text-xs font-bold text-gray-500 mb-1">Day</label>
                                 <div className="flex gap-1 overflow-x-auto pb-2">
-                                    {DAYS.map(day => (
+                                    {days.map(day => (
                                         <button
                                             key={day.label}
                                             onClick={() => setSelectedDay(day.label)}
