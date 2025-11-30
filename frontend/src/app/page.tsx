@@ -17,15 +17,6 @@ export default function Home() {
     setLoading(true)
     setMessage('')
 
-    // DEMO BYPASS: Simulate login and redirect
-    console.log("Bypassing auth for demo...")
-    setTimeout(() => {
-      router.push('/onboarding')
-    }, 1000)
-    return
-
-    /* 
-    // Original Auth Logic
     if (!email.endsWith('@iimb.ac.in')) {
       setMessage('Please use your @iimb.ac.in email address.')
       setLoading(false)
@@ -45,7 +36,6 @@ export default function Home() {
       setMessage('Check your email for the magic link!')
     }
     setLoading(false)
-    */
   }
 
   return (

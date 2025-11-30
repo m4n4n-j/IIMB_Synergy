@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import { Loader2, Calendar, MapPin, Clock, User, ChevronLeft, ChevronRight, Coffee, Utensils, BookOpen, MessageCircle, Gamepad2, Shirt } from 'lucide-react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import Image from 'next/image'
 
 function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
@@ -43,13 +42,6 @@ export default function Dashboard() {
 
     useEffect(() => {
         const getData = async () => {
-            // DEMO BYPASS: Mock Data
-            setUser({ id: 'mock-user-id', email: 'demo@iimb.ac.in' })
-            setSlots([])
-            setMatches([]) // Set to empty or mock match if needed
-            setLoading(false)
-
-            /*
             const { data: { user } } = await supabase.auth.getUser()
             if (!user) {
                 router.push('/')
@@ -78,7 +70,6 @@ export default function Dashboard() {
             if (matchesData) setMatches(matchesData)
 
             setLoading(false)
-            */
         }
         getData()
     }, [router])
@@ -86,19 +77,6 @@ export default function Dashboard() {
     const handleSetAvailability = async () => {
         if (!selectedActivity || !user) return
 
-        // DEMO BYPASS: Local state update only
-        const newSlot = {
-            id: Math.random().toString(),
-            user_id: user.id,
-            day_of_week: 'Wednesday',
-            time_slot: '13:00',
-            activity_type: selectedActivity === 'Mess Lunch' ? 'Lunch' : 'Coffee',
-            status: 'Open'
-        }
-        setSlots([...slots, newSlot])
-        setShowAvailabilitySheet(false)
-
-        /*
         // Add slot logic here (simplified)
         const { data, error } = await supabase.from('availability_slots').insert({
             user_id: user.id,
@@ -110,7 +88,7 @@ export default function Dashboard() {
 
         if (data) setSlots([...slots, data])
         setShowAvailabilitySheet(false)
-        */
+        setSelectedActivity(null)
     }
 
     if (loading) return <div className="flex justify-center items-center h-screen"><Loader2 className="animate-spin text-[#B91C1C]" /></div>
@@ -133,10 +111,9 @@ export default function Dashboard() {
                 <div className="mx-4 bg-white rounded-3xl overflow-hidden shadow-xl">
                     {/* Image Placeholder */}
                     <div className="h-64 bg-gray-300 relative">
-                        {/* <Image src="/placeholder-profile.jpg" layout="fill" objectFit="cover" alt="Profile" /> */}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
                             <p className="text-white/80 text-sm mb-1">You are meeting</p>
-                            <h2 className="text-white text-2xl font-bold">{partner.full_name} ({partner.program})</h2>
+                            <h2 className="text-white text-2xl font-bold">{partner?.full_name || 'Unknown'} ({partner?.program || 'N/A'})</h2>
                         </div>
                     </div>
 
@@ -206,40 +183,51 @@ export default function Dashboard() {
                         )}
                     >
                         <span className="text-xs font-medium">{day.label}</span>
-                        {/* <span className="text-xs">{day.date}</span> */}
                     </button>
                 ))}
             </div>
 
-            {/* Timeline View */}
+            {/* Timeline View - Now Dynamic! */}
             <div className="px-6 relative space-y-8">
                 {/* Vertical Line */}
                 <div className="absolute left-[27px] top-0 bottom-0 w-0.5 bg-gray-200"></div>
 
-                {/* Slots */}
-                <div className="relative flex gap-6">
-                    <div className="z-10 mt-1">
-                        <Utensils className="h-5 w-5 text-gray-500" />
+                {/* Dynamically render slots */}
+                {slots.length === 0 && (
+                    <div className="text-center py-8 text-gray-500">
+                        <p>No availability set yet.</p>
+                        <p className="text-sm">Click below to set your availability!</p>
                     </div>
-                    <div>
-                        <h3 className="font-bold text-gray-900">Mess Lunch</h3>
-                        <p className="text-gray-500 text-sm">9 AM - 10 AM</p>
-                    </div>
-                </div>
+                )}
+                {slots.map((slot) => {
+                    const ActivityIcon = ACTIVITY_ICONS[slot.activity_type === 'Lunch' ? 'Mess Lunch' : 'Coffee'] || Coffee
+                    return (
+                        <div key={slot.id} className="relative flex gap-6">
+                            <div className="z-10 mt-1">
+                                <ActivityIcon className="h-5 w-5 text-gray-500" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900">
+                                    {slot.activity_type === 'Lunch' ? 'Mess Lunch' : 'Coffee'}
+                                </h3>
+                                <p className="text-gray-500 text-sm">{slot.day_of_week} - {slot.time_slot}</p>
+                                <span className={cn(
+                                    "text-xs px-2 py-1 rounded-full",
+                                    slot.status === 'Matched' ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
+                                )}>
+                                    {slot.status}
+                                </span>
+                            </div>
+                        </div>
+                    )
+                })}
 
-                <div className="relative flex gap-6" onClick={() => setShowAvailabilitySheet(true)}>
+                {/* Add Availability Button */}
+                <div className="relative flex gap-6 cursor-pointer" onClick={() => setShowAvailabilitySheet(true)}>
                     <div className="z-10 h-4 w-4 rounded-full border-2 border-[#B91C1C] bg-white mt-1"></div>
                     <div>
-                        <h3 className="font-bold text-gray-900">Available</h3>
-                        <p className="text-gray-500 text-sm">11 AM - 12 PM</p>
-                    </div>
-                </div>
-
-                <div className="relative flex gap-6" onClick={() => setShowAvailabilitySheet(true)}>
-                    <div className="z-10 h-4 w-4 rounded-full border-2 border-[#B91C1C] bg-white mt-1"></div>
-                    <div>
-                        <h3 className="font-bold text-gray-900">Available</h3>
-                        <p className="text-gray-500 text-sm">1 PM - 2 PM</p>
+                        <h3 className="font-bold text-[#B91C1C]">+ Add Availability</h3>
+                        <p className="text-gray-500 text-sm">Set when you're free to meet</p>
                     </div>
                 </div>
             </div>
@@ -281,32 +269,27 @@ export default function Dashboard() {
                             </div>
                         </div>
 
-                        <button
-                            onClick={handleSetAvailability}
-                            className="w-full bg-[#B91C1C] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#991B1B] transition-colors"
-                        >
-                            Confirm Availability
-                        </button>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => {
+                                    setShowAvailabilitySheet(false)
+                                    setSelectedActivity(null)
+                                }}
+                                className="flex-1 bg-gray-200 text-gray-700 font-bold py-4 rounded-xl hover:bg-gray-300 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={handleSetAvailability}
+                                disabled={!selectedActivity}
+                                className="flex-1 bg-[#B91C1C] text-white font-bold py-4 rounded-xl shadow-lg hover:bg-[#991B1B] transition-colors disabled:opacity-50"
+                            >
+                                Confirm
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
-
-            {/* DEMO ONLY: Simulate Match Button */}
-            <div className="fixed bottom-4 right-4">
-                <button
-                    onClick={() => setMatches([{
-                        id: 'demo-match',
-                        user_1_id: 'mock-user-id',
-                        user_2: { full_name: 'Aditi Sharma', program: 'MBA 2025' },
-                        activity_type: 'Coffee',
-                        location: 'CCD',
-                        scheduled_time: new Date().toISOString()
-                    }])}
-                    className="bg-gray-900 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg opacity-50 hover:opacity-100 transition-opacity"
-                >
-                    Demo: Simulate Match
-                </button>
-            </div>
         </div>
     )
 }

@@ -36,10 +36,6 @@ export default function Onboarding() {
 
     useEffect(() => {
         const getUser = async () => {
-            // DEMO BYPASS: Set mock user
-            setUser({ id: 'mock-user-id', email: 'demo@iimb.ac.in' })
-
-            /*
             const { data: { user } } = await supabase.auth.getUser()
             if (!user) {
                 router.push('/')
@@ -55,9 +51,8 @@ export default function Onboarding() {
                 .single()
 
             if (profile && profile.full_name) {
-                // router.push('/dashboard') // Commented out for testing flow
+                router.push('/dashboard')
             }
-            */
         }
         getUser()
     }, [router])
@@ -77,13 +72,6 @@ export default function Onboarding() {
 
         if (!user) return
 
-        // DEMO BYPASS: Skip DB update
-        setTimeout(() => {
-            router.push('/dashboard')
-        }, 1000)
-        return
-
-        /*
         const { error } = await supabase
             .from('users')
             .upsert({
@@ -101,7 +89,6 @@ export default function Onboarding() {
             router.push('/dashboard')
         }
         setLoading(false)
-        */
     }
 
     if (!user) return <div className="flex justify-center items-center h-screen"><Loader2 className="animate-spin text-[#B91C1C]" /></div>

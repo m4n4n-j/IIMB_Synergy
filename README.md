@@ -1,4 +1,4 @@
-# Synapse Lite MVP
+# IIMB Synergy
 
 A Progressive Web App for IIM Bangalore students to automate networking through algorithmic matching.
 
