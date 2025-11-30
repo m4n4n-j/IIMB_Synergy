@@ -126,7 +126,7 @@ export default function Onboarding() {
                         value={formData.full_name}
                         onChange={e => setFormData({ ...formData, full_name: e.target.value })}
                         placeholder="Enter your full name"
-                        className="w-full p-4 text-lg border-2 border-gray-200 rounded-xl focus:border-[#B91C1C] focus:ring-0 outline-none transition-all"
+                        className="w-full p-4 text-lg text-gray-900 border-2 border-gray-200 rounded-xl focus:border-[#B91C1C] focus:ring-0 outline-none transition-all"
                     />
                 </div>
 
