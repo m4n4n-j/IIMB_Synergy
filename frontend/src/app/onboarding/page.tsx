@@ -80,18 +80,22 @@ export default function Onboarding() {
 
         if (!user) return
 
+        const payload = {
+            id: user.id,
+            email: user.email,
+            full_name: formData.full_name,
+            program: formData.program as any,
+            year: parseInt(formData.year.toString()),
+            section: formData.section.toUpperCase(),
+            interests: formData.interests,
+            bio: formData.intent, // Mapping intent to bio
+        }
+
+        console.log('Submitting payload:', payload)
+
         const { error } = await supabase
             .from('users')
-            .upsert({
-                id: user.id,
-                email: user.email,
-                full_name: formData.full_name,
-                program: formData.program as any,
-                year: parseInt(formData.year.toString()),
-                section: formData.section.toUpperCase(),
-                interests: formData.interests,
-                bio: formData.intent, // Mapping intent to bio for MVP
-            })
+            .upsert(payload)
 
         if (error) {
             alert('Error updating profile: ' + error.message)
