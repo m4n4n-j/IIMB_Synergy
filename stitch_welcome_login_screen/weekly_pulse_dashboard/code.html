@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Pulse Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --iimb-red: #A3262A;
+        }
+    </style>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A3262A",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light">
+<div class="relative flex h-screen min-h-screen w-full flex-col overflow-hidden">
+<div class="flex flex-1 flex-col">
+<header class="flex shrink-0 items-center justify-between p-4 pb-2 bg-background-light">
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg text-slate-900">
+<span class="material-symbols-outlined text-2xl">chevron_left</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-[-0.015em] text-slate-900">Weekly Pulse</h1>
+<button class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg text-slate-900">
+<span class="material-symbols-outlined text-2xl">chevron_right</span>
+</button>
+</header>
+<h2 class="px-4 pb-2 pt-2 text-center text-2xl font-bold leading-tight tracking-tight text-slate-900">Oct 23 - Oct 29</h2>
+<div class="flex justify-center px-4 pt-3 pb-4">
+<div class="flex gap-2.5 overflow-x-auto p-1">
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">M</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">T</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary">
+<p class="text-sm font-bold leading-normal text-white">W</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">Th</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">F</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">S</p>
+</div>
+<div class="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-100">
+<p class="text-sm font-medium leading-normal text-gray-700">Su</p>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-4 pb-20">
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center gap-1 pt-3">
+<span class="material-symbols-outlined text-xl text-slate-600">restaurant</span>
+<div class="h-2 w-[1.5px] grow bg-slate-200"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-base font-medium leading-normal text-slate-900">Mess Lunch</p>
+<p class="text-base font-normal leading-normal text-slate-500">9 AM - 10 AM</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="h-2 w-[1.5px] bg-slate-200"></div>
+<span class="material-symbols-outlined text-xl text-primary">radio_button_unchecked</span>
+<div class="h-2 w-[1.5px] grow bg-slate-200"></div>
+</div>
+<div class="flex flex-1 cursor-pointer flex-col py-3">
+<p class="text-base font-medium leading-normal text-slate-900">Available</p>
+<p class="text-base font-normal leading-normal text-slate-500">11 AM - 12 PM</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="h-2 w-[1.5px] bg-slate-200"></div>
+<span class="material-symbols-outlined text-xl text-primary">radio_button_unchecked</span>
+<div class="h-2 w-[1.5px] grow bg-slate-200"></div>
+</div>
+<div class="flex flex-1 cursor-pointer flex-col py-3">
+<p class="text-base font-medium leading-normal text-slate-900">Available</p>
+<p class="text-base font-normal leading-normal text-slate-500">1 PM - 2 PM</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="h-2 w-[1.5px] bg-slate-200"></div>
+<span class="material-symbols-outlined text-xl text-slate-600">coffee</span>
+<div class="h-2 w-[1.5px] grow bg-slate-200"></div>
+</div>
+<div class="flex flex-1 flex-col py-3">
+<p class="text-base font-medium leading-normal text-slate-900">Coffee</p>
+<p class="text-base font-normal leading-normal text-slate-500">4 PM - 5 PM</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="h-2 w-[1.5px] bg-slate-200"></div>
+<span class="material-symbols-outlined text-xl text-slate-600">sports_basketball</span>
+<div class="h-2 w-[1.5px] grow bg-slate-200"></div>
+</div>
+<div class="relative flex flex-1 flex-col py-3">
+<p class="text-base font-medium leading-normal text-slate-900">Sports</p>
+<p class="text-base font-normal leading-normal text-slate-500">6 PM - 7 PM</p>
+<div class="absolute right-0 top-1/2 -translate-y-1/2 rounded-full border border-green-500/50 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-500">Matched</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 flex flex-col justify-end bg-black/40">
+<div class="flex flex-col rounded-t-xl bg-gray-50 shadow-2xl">
+<div class="flex h-5 w-full shrink-0 items-center justify-center">
+<div class="h-1 w-9 rounded-full bg-gray-300"></div>
+</div>
+<div class="flex flex-col items-stretch px-4 pb-6 pt-2">
+<h3 class="text-center text-lg font-semibold text-slate-900">Set Availability</h3>
+<p class="text-center text-sm text-slate-500">Wednesday, 1:00 PM - 2:00 PM</p>
+<div class="mt-6 grid grid-cols-3 gap-4">
+<button class="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-4">
+<span class="material-symbols-outlined text-2xl text-slate-600">coffee</span>
+<span class="text-sm font-medium text-slate-800">Coffee</span>
+</button>
+<button class="flex flex-col items-center gap-2 rounded-xl border-2 border-primary bg-primary/10 p-4">
+<span class="material-symbols-outlined text-2xl text-primary">restaurant</span>
+<span class="text-sm font-bold text-primary">Mess Lunch</span>
+</button>
+<button class="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-4">
+<span class="material-symbols-outlined text-2xl text-slate-600">sports_basketball</span>
+<span class="text-sm font-medium text-slate-800">Sports</span>
+</button>
+<button class="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-4">
+<span class="material-symbols-outlined text-2xl text-slate-600">menu_book</span>
+<span class="text-sm font-medium text-slate-800">Study</span>
+</button>
+<button class="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-4">
+<span class="material-symbols-outlined text-2xl text-slate-600">styler</span>
+<span class="text-sm font-medium text-slate-800">Hangout</span>
+</button>
+<button class="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-4">
+<span class="material-symbols-outlined text-2xl text-slate-600">forum</span>
+<span class="text-sm font-medium text-slate-800">Chat</span>
+</button>
+</div>
+<div class="mt-6 flex items-center justify-between gap-4 rounded-lg bg-gray-100 p-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-600">calendar_add_on</span>
+<span class="text-sm font-medium text-slate-700">Block on Google Calendar</span>
+</div>
+<div class="relative inline-flex h-6 w-11 cursor-pointer items-center rounded-full">
+<input class="peer sr-only" id="calendar-toggle" type="checkbox"/>
+<div class="h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300"></div>
+</div>
+</div>
+<button class="mt-4 flex h-12 w-full items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white">Confirm Availability</button>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

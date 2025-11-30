@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Past Matches &amp; Ratings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ec1313", // Updated to match user request of #B3282D, will use a similar red
+            "primary-red": "#B3282D",
+            "background-light": "#f8f6f6",
+            "background-dark": "#221010",
+            "text-primary-light": "#333333",
+            "text-primary-dark": "#F0F0F0",
+            "text-secondary-light": "#666666",
+            "text-secondary-dark": "#AAAAAA",
+            "card-light": "#FFFFFF",
+            "card-dark": "#2C1A1A"
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .rating-stars:hover .star-icon {
+      color: #B3282D;}
+    .rating-stars .star-icon:hover ~ .star-icon {
+      color: #d1d5db;}
+    .dark .rating-stars .star-icon:hover ~ .star-icon {
+      color: #4b5563;}
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
+<div class="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200/80 bg-background-light/80 p-4 pb-3 backdrop-blur-sm dark:border-gray-800/80 dark:bg-background-dark/80">
+<a aria-label="Go back" class="flex items-center" href="#">
+<span class="material-symbols-outlined text-text-primary-light dark:text-text-primary-dark text-2xl">arrow_back_ios_new</span>
+</a>
+<h1 class="flex-1 text-center text-lg font-bold leading-tight tracking-tight text-text-primary-light dark:text-text-primary-dark">Past Matches &amp; Ratings</h1>
+<div class="w-6"></div> 
+</div>
+<div class="flex flex-col gap-4 p-4">
+<div class="flex flex-col gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture of Aarav Sharma" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDaeG9ZAQZSJp7CsVb6xclbITmxYTQaZtC6vty5NmHzyso53EmkFUVnwSofSRZOFR0X6849uCNTcH1Qwz588zTKQYvyOkLZt546cGYk761xysLLyW-WgCRYkgIeA1XHaQjNpnnK5S5ojJFehdB_1fq-j5Uc9i00kOXijhOnmQtQAnk3Jti8EX63cugkTl6WxnfV078rt67S5xtACKrtRZFg0bXrjLqWkb6vXml12DFMabzZGp_Dz90iUNBObapqcPZoS9kDTrK5W_Y");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-bold leading-normal text-text-primary-light dark:text-text-primary-dark">Aarav Sharma</p>
+<p class="text-sm font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark">Coffee at H-Block on Oct 26</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+<p class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Rate your meetup</p>
+<div class="rating-stars flex items-center gap-1 text-2xl text-gray-300 dark:text-gray-600">
+<button aria-label="Rate 1 star"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 2 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 3 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 4 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 5 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture of Priya Singh" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBangAeoMTXsPW_4uekRIT66NJblRehns8n7A-SMvDXDW09Qtwu6-oPfzzmS_0PCmrqCEUKFfXuLkHbYuwjFNe6UY0wi3eYXBnOeC4u3BmggoB5PFoM4faZ6cjQUvmYuBW4KUXr1kgWyJiw0_YIQNCblQ7uZUQNxagp_k1pz-mmnLs54olOM9kL0Va8zGmG_rs4SHBTFk5WCp2U-h55IbXkN-t_nc5ZeGxTEZfH14J_GQt1KSVl75fngO9qLABj--S3VeYfNpEN530");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-bold leading-normal text-text-primary-light dark:text-text-primary-dark">Priya Singh</p>
+<p class="text-sm font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark">Lunch at Mess on Oct 22</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+<p class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">You rated</p>
+<div class="flex items-center gap-1 text-2xl">
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-gray-300 dark:text-gray-600" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture of Rohan Gupta" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuColHCl0cPcsY0t5CbEtVOcMoycaCM44ZzJs725jysc2tD1KFRcJmv5qYtWJpNbPPvyOw1hEIvtodGGIFBXJut7JjtEHZBBe62f2WAltSSZzygyRJSbPrYpypwUw6z2pAVj-Z9vqnjsrmxZjJ4H-8vhA1w5vd_Pf5VcbH0Vyl86zpKHWuMlsZQxWC3BssTO6Z-bXIw1yCZrV7PW5GkEjEkWaoeJvG2NODZk_Lozrx1lGZCKppEIyAg_HZxX7mOCc5Be8tCY5KYoB6A");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-bold leading-normal text-text-primary-light dark:text-text-primary-dark">Rohan Gupta</p>
+<p class="text-sm font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark">Library Study Session on Oct 19</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+<p class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Rate your meetup</p>
+<div class="rating-stars flex items-center gap-1 text-2xl text-gray-300 dark:text-gray-600">
+<button aria-label="Rate 1 star"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 2 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 3 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 4 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+<button aria-label="Rate 5 stars"><span class="star-icon material-symbols-outlined transition-colors">star</span></button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+<div class="flex items-center gap-4">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center bg-no-repeat" data-alt="Profile picture of Sneha Reddy" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDg9zDUZD8f67hlp_vEvIwNd11BcBvxjdXqzs0w_AwFOw2NcYD5yLKnDjG7sqjs91qo2YzVYWW9bEO2TtRWTJBUqUxH--1hKQbwe6e-d7AKmIgqgyiOOtkUFxWuPbtbj-9OOv_wMHG8I9to88bYSkFOZcFeEAnlL4oRU9RoHQDWUE5UKNCembdQTFEuYP1o8-sNWDcHXG3cbuflA6dSAgN1oT5mtZOBo525-VDuwpsHxJjgdjqi9tFCH8OJ2OXuCibnQjHJ31Asel4");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-bold leading-normal text-text-primary-light dark:text-text-primary-dark">Sneha Reddy</p>
+<p class="text-sm font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark">Badminton at SRC on Oct 15</p>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+<p class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">You rated</p>
+<div class="flex items-center gap-1 text-2xl">
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+<span class="material-symbols-outlined text-primary-red">star</span>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col items-center justify-center rounded-xl bg-card-light p-8 text-center shadow-sm dark:bg-card-dark">
+<span class="material-symbols-outlined text-5xl text-gray-400 dark:text-gray-500">forum</span>
+<h3 class="mt-4 text-base font-semibold text-text-primary-light dark:text-text-primary-dark">No Past Meetups Yet</h3>
+<p class="mt-1 text-sm text-text-secondary-light dark:text-text-secondary-dark">Your past meetups will appear here once they're completed.</p>
+</div>
+</div>
+</div>
+
+</body></html>

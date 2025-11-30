@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Welcome/Login Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --iimb-red: #B31B1B;
+        --iimb-red-darker: #9A1818;
+      }
+    }
+  </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary": "var(--iimb-red)",
+              "primary-darker": "var(--iimb-red-darker)",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-primary font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-primary group/design-root overflow-x-hidden">
+<main class="flex flex-col grow justify-center px-6 py-12">
+<div class="flex flex-col items-center mb-8">
+<div class="w-32 h-32 bg-center bg-no-repeat bg-contain" data-alt="Stylized crest of IIM Bangalore" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjgZMutQzwewC4vN3cqFhnDAhy5Qvpfr5Chsu_nG-GOYsITtMM9gi8cV8GAosB5_1zOTu6Aqy7wy77rSivoxWKDd1eHONNcjeTleBchCR8U_AkLoLw_oO-Lly8Ka2XXaKOVNZZEPBV31ryOvrRx4S_-0ZZ_tOjlxhW42WpT4lu2KARNQ58HI_Oq0SJWaRtcdb5m81qdg96z_p-HVTYjGOgRfAgqW3VAPFAxISv-BseY4t7unTi2FaANFuNKGaEn_SsXOiyrXV5cEc");'></div>
+<h2 class="text-white text-xl font-semibold mt-4">Indian Institute of Management Bangalore</h2>
+</div>
+<div class="text-center">
+<h1 class="text-white tracking-tight text-3xl font-bold leading-tight">Connect with your Batchmates</h1>
+<p class="text-white/80 text-base font-normal leading-normal mt-2">Automated networking to help you meet someone new every week.</p>
+</div>
+<div class="mt-10">
+<div class="flex w-full flex-wrap items-end gap-4">
+<label class="flex flex-col w-full flex-1">
+<p class="text-white text-sm font-medium leading-normal pb-2">Your IIMB Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 focus:outline-0 focus:ring-2 focus:ring-white/50 border-0 bg-white h-14 placeholder:text-slate-400 p-4 text-base font-normal leading-normal" placeholder="name.rollnumber@iimb.ac.in" value=""/>
+</label>
+</div>
+<div class="flex mt-6">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-primary">
+<span class="truncate">Get Magic Link</span>
+</button>
+</div>
+<p class="text-white/80 text-xs font-normal leading-normal mt-4 text-center">We'll send a secure login link to your IIMB email. No password required.</p>
+</div>
+</main>
+</div>
+
+</body></html>

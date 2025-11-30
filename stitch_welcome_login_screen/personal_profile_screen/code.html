@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personal Profile Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#990000",
+              "background-light": "#f8f6f6",
+              "background-dark": "#221010",
+              "content-light": "#333333",
+              "content-dark": "#e0e0e0",
+              "subtle-light": "#666666",
+              "subtle-dark": "#a0a0a0",
+              "border-light": "#F0F0F0",
+              "border-dark": "#444444",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-content-light dark:text-content-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 p-4 backdrop-blur-sm">
+<button class="flex size-10 shrink-0 items-center justify-center text-content-light dark:text-content-dark">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold">My Profile</h1>
+<button class="flex size-10 shrink-0 items-center justify-center text-content-light dark:text-content-dark">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<main class="flex flex-1 flex-col gap-6 p-4">
+<!-- Profile Header -->
+<div class="flex w-full flex-col items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32" data-alt="Profile picture of Rohan Verma" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDH2JdtF2_3rc8-1TPWOimFZAMe6rUC7QsjWEVjbSUfoHP3XjCs33qWPL93Q8llg5ch6dYHh5sibT2g2OX7md7S9FWlWVe1vwUIvYy61dauU4rLJDiQG3cWpG2V37j3Q14sHa8O_NPSstbF_YQUXyFT6DpVBDo9pDZTBpjJn-Gv7sk2OV_e8bXIAzPB_3xEiyT39OlJ3TWoKYeZuNP8hXyehARadevsFZXZuzWd_dM0PA_HOdPvKfmCZuwWB0cOEbd9JNiGIHU-My4");'></div>
+<button class="absolute bottom-0 right-0 flex h-9 w-9 items-center justify-center rounded-full border-2 border-background-light dark:border-background-dark bg-primary text-white">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-2xl font-bold">Rohan Verma</p>
+<p class="text-base text-subtle-light dark:text-subtle-dark">rohan.verma@iimb.ac.in</p>
+</div>
+<p class="text-base text-center">PGP 2025, Section B</p>
+</div>
+<!-- Reliability Score -->
+<div class="flex flex-col gap-3 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-black/20 p-4">
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<p class="text-base font-medium">Reliability Score</p>
+<span class="material-symbols-outlined text-sm text-subtle-light dark:text-subtle-dark cursor-help">help_outline</span>
+</div>
+<p class="text-base font-bold text-primary">92%</p>
+</div>
+<div class="h-2 w-full rounded-full bg-border-light dark:bg-border-dark">
+<div class="h-2 rounded-full bg-primary" style="width: 92%;"></div>
+</div>
+<p class="text-sm text-subtle-light dark:text-subtle-dark">Based on your attendance at scheduled meetups.</p>
+</div>
+<!-- My Interests -->
+<div class="flex flex-col gap-3">
+<h3 class="text-lg font-bold">My Interests</h3>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">Finance</span>
+<span class="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">AI/ML</span>
+<span class="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">Trekking</span>
+<span class="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">Consulting</span>
+<span class="rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">Product Management</span>
+</div>
+</div>
+<!-- About Me -->
+<div class="flex flex-col gap-3">
+<h3 class="text-lg font-bold">About Me</h3>
+<p class="text-base leading-relaxed text-subtle-light dark:text-subtle-dark">Aspiring product manager with a background in software engineering. Passionate about leveraging technology to solve real-world problems. Looking to connect with peers interested in tech, entrepreneurship, and strategy.</p>
+</div>
+</main>
+<!-- Edit Profile CTA -->
+<div class="sticky bottom-0 bg-background-light/80 dark:bg-background-dark/80 p-4 backdrop-blur-sm">
+<button class="w-full rounded-lg bg-primary py-3 text-base font-bold text-white transition-opacity hover:opacity-90">Edit Profile</button>
+</div>
+</div>
+</body></html>

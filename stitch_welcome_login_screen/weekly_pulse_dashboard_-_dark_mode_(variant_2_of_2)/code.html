@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Pulse Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#A6192E", // A deep red from the screenshots
+            "background-light": "#F3F4F6", // Light grey for light mode
+            "background-dark": "#121212", // Very dark grey for dark mode
+          },
+          fontFamily: {
+            display: ["Roboto", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem", // 12px
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-icons {
+      font-size: 24px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="mx-auto max-w-sm">
+<div class="flex flex-col h-screen">
+<header class="bg-background-light dark:bg-background-dark px-4 pt-12 pb-4 sticky top-0 z-10">
+<div class="flex justify-between items-center mb-4">
+<div>
+<h1 class="text-2xl font-bold text-slate-800 dark:text-white">Weekly Pulse</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400">Set your availability for connections</p>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-600 dark:text-slate-300">
+<span class="material-icons">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg">
+              SS
+            </div>
+</div>
+</div>
+</header>
+<main class="flex-grow overflow-y-auto px-4">
+<div class="flex justify-between items-center mb-6">
+<button class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-icons">chevron_left</span>
+</button>
+<div class="text-center">
+<p class="font-semibold text-slate-800 dark:text-white">Mon, 15 - Sun, 21 July</p>
+</div>
+<button class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-1 mb-8 text-center">
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">MON</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">TUE</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">WED</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">THU</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">FRI</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">SAT</div>
+<div class="text-slate-500 dark:text-slate-400 text-xs font-medium">SUN</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">15</div>
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full font-bold">16</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">17</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">18</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">19</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">20</div>
+<div class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-300">21</div>
+</div>
+<div class="space-y-3">
+<h3 class="font-bold text-slate-800 dark:text-white">Tuesday, July 16</h3>
+<div class="space-y-2">
+<button class="w-full text-left p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<p class="font-medium text-slate-700 dark:text-slate-200">10:00 AM - 11:00 AM</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Tap to set availability</p>
+</button>
+<button class="w-full text-left p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<p class="font-medium text-slate-700 dark:text-slate-200">11:00 AM - 12:00 PM</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Tap to set availability</p>
+</button>
+<div class="p-4 rounded-lg bg-primary/10 dark:bg-primary/20 border border-primary/50">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-bold text-primary">02:00 PM - 03:00 PM</p>
+<p class="text-sm text-slate-600 dark:text-slate-300">Status: Available</p>
+</div>
+<div class="flex items-center space-x-2">
+<span class="material-icons text-green-500">check_circle</span>
+<span class="text-sm font-medium text-green-600 dark:text-green-400">Set</span>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">I'm up for:</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
+<span class="material-icons mr-1.5" style="font-size: 16px;">coffee</span>
+                    Coffee
+                  </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
+<span class="material-icons mr-1.5" style="font-size: 16px;">restaurant</span>
+                    Lunch
+                  </span>
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200">
+<span class="material-icons mr-1.5" style="font-size: 16px;">sports_tennis</span>
+                    Tennis
+                  </span>
+</div>
+</div>
+<div class="flex items-center p-3 rounded-lg bg-slate-200/50 dark:bg-slate-800/70">
+<span class="material-icons text-slate-600 dark:text-slate-300 mr-3">calendar_today</span>
+<p class="text-sm text-slate-600 dark:text-slate-300 flex-1">This slot is blocked in your Google Calendar.</p>
+<button class="text-xs font-semibold text-primary">UNDO</button>
+</div>
+</div>
+<button class="w-full text-left p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+<p class="font-medium text-slate-700 dark:text-slate-200">03:00 PM - 04:00 PM</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Tap to set availability</p>
+</button>
+</div>
+</div>
+</main>
+<footer class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm border-t border-slate-200 dark:border-slate-800 sticky bottom-0">
+<nav class="flex justify-around items-center h-20">
+<a class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="#">
+<span class="material-icons">home</span>
+<span class="text-xs mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="#">
+<span class="material-icons">search</span>
+<span class="text-xs mt-1">Discover</span>
+</a>
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-icons">schedule</span>
+<span class="text-xs mt-1">My Pulse</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="#">
+<span class="material-icons">chat_bubble_outline</span>
+<span class="text-xs mt-1">Chats</span>
+</a>
+<a class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary" href="#">
+<span class="material-icons">person_outline</span>
+<span class="text-xs mt-1">Profile</span>
+</a>
+</nav>
+</footer>
+</div>
+</div>
+
+</body></html>
