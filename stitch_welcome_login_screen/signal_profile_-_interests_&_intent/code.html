@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Signal Profile - Interests &amp; Intent</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<style>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Signal Profile - Interests &amp; Intent</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <style>
         .material-symbols-outlined {
             font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
         }
     </style>
-<script id="tailwind-config">
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -38,109 +42,132 @@
             },
         }
     </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-      background-color: #FFFFFF;
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light font-display">
-<div class="relative mx-auto flex h-auto min-h-screen w-full max-w-md flex-col overflow-x-hidden">
-<div class="flex items-center bg-background-light p-4 pb-2 justify-between sticky top-0 z-10">
-<div class="text-slate-800 flex size-12 shrink-0 items-center -ml-3">
-<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
-</div>
-<h1 class="text-slate-900 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Signal Profile</h1>
-<div class="flex size-12 shrink-0 items-center"></div>
-</div>
-<div class="flex w-full flex-row items-center justify-center gap-3 py-5">
-<div class="h-2 w-2 rounded-full bg-primary/20"></div>
-<div class="h-2 w-2 rounded-full bg-primary"></div>
-<div class="h-2 w-2 rounded-full bg-primary/20"></div>
-<div class="h-2 w-2 rounded-full bg-primary/20"></div>
-</div>
-<div class="flex-grow px-4 pb-28">
-<div class="mb-8">
-<h2 class="text-slate-900 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2 pt-5">Select Your Interests</h2>
-<p class="text-slate-600 text-base font-normal leading-normal">Pick 3-5 tags that best describe you.</p>
-<div class="flex gap-3 pt-4 flex-wrap">
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
-<span class="material-symbols-outlined text-white text-base">check</span>
-<p class="text-white text-sm font-medium leading-normal">Fintech</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">Marketing</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
-<span class="material-symbols-outlined text-white text-base">check</span>
-<p class="text-white text-sm font-medium leading-normal">Trekking</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">VegetarianFood</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">GenAI</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
-<span class="material-symbols-outlined text-white text-base">check</span>
-<p class="text-white text-sm font-medium leading-normal">Consulting</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">Startups</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">AI/ML</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">Badminton</p>
-</div>
-<div class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
-<p class="text-slate-800 text-sm font-medium leading-normal">Photography</p>
-</div>
-</div>
-</div>
-<div>
-<h2 class="text-slate-900 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2 pt-5">What's Your Intent?</h2>
-<p class="text-slate-600 text-base font-normal leading-normal">What are you primarily looking for?</p>
-<div class="mt-4 space-y-3">
-<div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
-<div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400"></div>
-<p class="flex-1 text-slate-800">Looking for Co-founder</p>
-</div>
-<div class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-primary bg-[#B31B1B]/10 p-4">
-<div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-primary">
-<span class="material-symbols-outlined text-white" style="font-size: 16px;">check</span>
-</div>
-<p class="flex-1 font-medium text-primary">Case Prep Partner</p>
-</div>
-<div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
-<div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400"></div>
-<p class="flex-1 text-slate-800">Casual Chat/Vent</p>
-</div>
-<div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
-<div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400"></div>
-<p class="flex-1 text-slate-800">Sports/Activity Buddy</p>
-</div>
-<div class="flex cursor-pointer items-center gap-4 rounded-xl border border-dashed border-slate-400 bg-white p-4">
-<div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400">
-<span class="material-symbols-outlined text-slate-400" style="font-size: 16px;">add</span>
-</div>
-<p class="flex-1 text-slate-600">Add Yours</p>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed bottom-0 left-0 right-0 w-full bg-background-light p-4 pt-2">
-<div class="mx-auto max-w-md">
-<button class="w-full rounded-xl bg-primary py-4 text-center text-base font-bold text-white">Next</button>
-</div>
-</div>
-</div>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #FFFFFF;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
 
-</body></html>
+<body class="bg-background-light font-display">
+    <div class="relative mx-auto flex h-auto min-h-screen w-full max-w-md flex-col overflow-x-hidden">
+        <div class="flex items-center bg-background-light p-4 pb-2 justify-between sticky top-0 z-10">
+            <div class="text-slate-800 flex size-12 shrink-0 items-center -ml-3">
+                <span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+            </div>
+            <h1 class="text-slate-900 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Signal
+                Profile</h1>
+            <div class="flex size-12 shrink-0 items-center"></div>
+        </div>
+        <div class="flex w-full flex-row items-center justify-center gap-3 py-5">
+            <div class="h-2 w-2 rounded-full bg-primary/20"></div>
+            <div class="h-2 w-2 rounded-full bg-primary"></div>
+            <div class="h-2 w-2 rounded-full bg-primary/20"></div>
+            <div class="h-2 w-2 rounded-full bg-primary/20"></div>
+        </div>
+        <div class="flex-grow px-4 pb-28">
+            <div class="mb-8">
+                <h2 class="text-slate-900 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2 pt-5">Select Your
+                    Interests</h2>
+                <p class="text-slate-600 text-base font-normal leading-normal">Pick 3-5 tags that best describe you.</p>
+                <div class="flex gap-3 pt-4 flex-wrap">
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
+                        <span class="material-symbols-outlined text-white text-base">check</span>
+                        <p class="text-white text-sm font-medium leading-normal">Fintech</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">Marketing</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
+                        <span class="material-symbols-outlined text-white text-base">check</span>
+                        <p class="text-white text-sm font-medium leading-normal">Trekking</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">VegetarianFood</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">GenAI</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4">
+                        <span class="material-symbols-outlined text-white text-base">check</span>
+                        <p class="text-white text-sm font-medium leading-normal">Consulting</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">Startups</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">AI/ML</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">Badminton</p>
+                    </div>
+                    <div
+                        class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-slate-100 px-4">
+                        <p class="text-slate-800 text-sm font-medium leading-normal">Photography</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-slate-900 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2 pt-5">What's Your
+                    Intent?</h2>
+                <p class="text-slate-600 text-base font-normal leading-normal">What are you primarily looking for?</p>
+                <div class="mt-4 space-y-3">
+                    <div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
+                        <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400">
+                        </div>
+                        <p class="flex-1 text-slate-800">Looking for Co-founder</p>
+                    </div>
+                    <div
+                        class="flex cursor-pointer items-center gap-4 rounded-xl border-2 border-primary bg-[#B31B1B]/10 p-4">
+                        <div
+                            class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-primary">
+                            <span class="material-symbols-outlined text-white" style="font-size: 16px;">check</span>
+                        </div>
+                        <p class="flex-1 font-medium text-primary">Study Partner</p>
+                    </div>
+                    <div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
+                        <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400">
+                        </div>
+                        <p class="flex-1 text-slate-800">Casual Chat/Vent</p>
+                    </div>
+                    <div class="flex cursor-pointer items-center gap-4 rounded-xl border border-slate-300 bg-white p-4">
+                        <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400">
+                        </div>
+                        <p class="flex-1 text-slate-800">Sports/Activity Buddy</p>
+                    </div>
+                    <div
+                        class="flex cursor-pointer items-center gap-4 rounded-xl border border-dashed border-slate-400 bg-white p-4">
+                        <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-slate-400">
+                            <span class="material-symbols-outlined text-slate-400" style="font-size: 16px;">add</span>
+                        </div>
+                        <p class="flex-1 text-slate-600">Add Yours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed bottom-0 left-0 right-0 w-full bg-background-light p-4 pt-2">
+            <div class="mx-auto max-w-md">
+                <button
+                    class="w-full rounded-xl bg-primary py-4 text-center text-base font-bold text-white">Next</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

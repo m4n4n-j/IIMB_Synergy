@@ -121,17 +121,33 @@ export default function Dashboard() {
             'M': 'Monday', 'T': 'Tuesday', 'W': 'Wednesday', 'Th': 'Thursday', 'F': 'Friday', 'S': 'Saturday', 'Su': 'Sunday'
         }[dayLabel] || 'Wednesday'
 
+        // Map display names to DB enum values
+        let dbActivityType = selectedActivity
+        if (selectedActivity === 'Mess Lunch') dbActivityType = 'Lunch'
+        if (selectedActivity === 'Sports') dbActivityType = 'Sport'
+
         const { data, error } = await supabase.from('availability_slots').insert({
             user_id: user.id,
             day_of_week: fullDayName,
             time_slot: selectedTime,
-            activity_type: selectedActivity === 'Mess Lunch' ? 'Lunch' : 'Coffee',
+            activity_type: dbActivityType,
             status: 'Open'
         }).select().single()
 
         if (data) setSlots([...slots, data])
         setShowAvailabilitySheet(false)
         setSelectedActivity(null)
+    }
+
+    const handleDeleteSlot = async (id: string) => {
+        const { error } = await supabase
+            .from('availability_slots')
+            .delete()
+            .eq('id', id)
+
+        if (!error) {
+            setSlots(slots.filter(slot => slot.id !== id))
+        }
     }
 
     if (loading) return <div className="flex justify-center items-center h-screen"><Loader2 className="animate-spin text-[#B91C1C]" /></div>
@@ -142,17 +158,17 @@ export default function Dashboard() {
         const partner = match.user_1_id === user.id ? match.user_2 : match.user_1
 
         return (
-            <div className="min-h-screen bg-gray-50 flex flex-col">
+            <div className="h-screen overflow-hidden bg-gray-50 flex flex-col">
                 <div className="p-4 flex items-center">
-                    <ChevronLeft className="h-6 w-6 cursor-pointer" onClick={() => setMatches([])} />
+                    <ChevronLeft className="h-6 w-6 cursor-pointer text-gray-900" onClick={() => setMatches([])} />
                 </div>
 
                 <div className="px-6 pt-4 pb-8">
                     <h1 className="text-3xl font-bold text-gray-900">You've Got a Match!</h1>
                 </div>
 
-                <div className="mx-4 bg-white rounded-3xl overflow-hidden shadow-xl">
-                    <div className="h-64 bg-gray-300 relative">
+                <div className="mx-4 bg-white rounded-3xl overflow-hidden shadow-xl flex-1 max-h-[600px]">
+                    <div className="h-1/3 bg-gray-300 relative">
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-20">
                             <p className="text-white/80 text-sm mb-1">You are meeting</p>
                             <h2 className="text-white text-2xl font-bold">{partner?.full_name || 'Unknown'} ({partner?.program || 'N/A'})</h2>
@@ -214,7 +230,13 @@ export default function Dashboard() {
                         {currentWeekStart ? `${formatDate(currentWeekStart)} - ${formatDate(new Date(currentWeekStart.getTime() + 6 * 24 * 60 * 60 * 1000))}` : ''}
                     </div>
                     <button
-                        onClick={() => router.push('/onboarding')}
+                        onClick={() => router.push('/history')}
+                        className="p-2 text-gray-400 hover:text-gray-600"
+                    >
+                        <Clock className="h-5 w-5" />
+                    </button>
+                    <button
+                        onClick={() => router.push('/profile')}
                         className="p-2 text-gray-400 hover:text-gray-600"
                     >
                         <User className="h-5 w-5" />
@@ -273,7 +295,7 @@ export default function Dashboard() {
                         activity_type: 'Coffee',
                         location: 'Mitti Cafe, IIMB Campus',
                         scheduled_time: new Date().toISOString(),
-                        user_2: { full_name: 'Rahul Sharma', program: 'MBA 2025' },
+                        user_2: { full_name: 'Tanya Agrawal', program: 'MBA 2025' },
                         user_1_id: user?.id
                     }])}
                     className="w-full py-3 bg-gray-900 text-white rounded-xl text-sm font-bold shadow-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2"
@@ -311,23 +333,31 @@ export default function Dashboard() {
                     </div>
                 )}
                 {slots.map((slot) => {
-                    const ActivityIcon = ACTIVITY_ICONS[slot.activity_type === 'Lunch' ? 'Mess Lunch' : 'Coffee'] || Coffee
+                    const ActivityIcon = ACTIVITY_ICONS[(slot.activity_type === 'Lunch' ? 'Mess Lunch' : (slot.activity_type === 'Sport' ? 'Sports' : slot.activity_type)) as keyof typeof ACTIVITY_ICONS] || Coffee
                     return (
-                        <div key={slot.id} className="relative flex gap-6">
+                        <div key={slot.id} className="relative flex gap-6 group">
                             <div className="z-10 mt-1">
                                 <ActivityIcon className="h-5 w-5 text-gray-500" />
                             </div>
-                            <div>
+                            <div className="flex-1">
                                 <h3 className="font-bold text-gray-900">
-                                    {slot.activity_type === 'Lunch' ? 'Mess Lunch' : 'Coffee'}
+                                    {slot.activity_type === 'Lunch' ? 'Mess Lunch' : (slot.activity_type === 'Sport' ? 'Sports' : slot.activity_type)}
                                 </h3>
-                                <p className="text-gray-500 text-sm">{slot.day_of_week} - {slot.time_slot}</p>
-                                <span className={cn(
-                                    "text-xs px-2 py-1 rounded-full",
-                                    slot.status === 'Matched' ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
-                                )}>
-                                    {slot.status}
-                                </span>
+                                <p className="text-gray-700 text-sm">{slot.day_of_week} - {slot.time_slot}</p>
+                                <div className="flex items-center gap-3 mt-2">
+                                    <span className={cn(
+                                        "text-xs px-2 py-1 rounded-full",
+                                        slot.status === 'Matched' ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
+                                    )}>
+                                        {slot.status}
+                                    </span>
+                                    <button
+                                        onClick={() => handleDeleteSlot(slot.id)}
+                                        className="text-red-600 text-xs font-bold hover:bg-red-50 px-2 py-1 rounded transition-colors"
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )
@@ -348,11 +378,11 @@ export default function Dashboard() {
                     <div className="bg-white w-full rounded-t-3xl p-6 animate-in slide-in-from-bottom duration-300">
                         <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
 
-                        <h3 className="text-xl font-bold text-center mb-4">Set Availability</h3>
+                        <h3 className="text-xl font-bold text-center mb-4 text-gray-900">Set Availability</h3>
 
                         <div className="flex gap-4 mb-6">
                             <div className="flex-1">
-                                <label className="block text-xs font-bold text-gray-500 mb-1">Day</label>
+                                <label className="block text-xs font-bold text-gray-900 mb-1">Day</label>
                                 <div className="flex gap-1 overflow-x-auto pb-2">
                                     {days.map(day => (
                                         <button
@@ -360,7 +390,7 @@ export default function Dashboard() {
                                             onClick={() => setSelectedDay(day.label)}
                                             className={cn(
                                                 "h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0",
-                                                selectedDay === day.label ? "bg-[#B91C1C] text-white" : "bg-gray-100 text-gray-600"
+                                                selectedDay === day.label ? "bg-[#B91C1C] text-white" : "bg-gray-100 text-gray-700"
                                             )}
                                         >
                                             {day.label}
@@ -369,14 +399,14 @@ export default function Dashboard() {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <label className="block text-xs font-bold text-gray-500 mb-1">Time</label>
+                                <label className="block text-xs font-bold text-gray-900 mb-1">Time</label>
                                 <select
                                     value={selectedTime}
                                     onChange={(e) => setSelectedTime(e.target.value)}
-                                    className="w-full p-2 bg-gray-100 rounded-lg text-sm font-medium outline-none focus:ring-2 focus:ring-[#B91C1C]"
+                                    className="w-full p-2 bg-gray-100 rounded-lg text-sm font-medium outline-none focus:ring-2 focus:ring-[#B91C1C] text-gray-900"
                                 >
                                     {TIME_SLOTS.map(slot => (
-                                        <option key={slot.value} value={slot.value}>{slot.label}</option>
+                                        <option key={slot.value} value={slot.value} className="text-gray-900">{slot.label}</option>
                                     ))}
                                 </select>
                             </div>

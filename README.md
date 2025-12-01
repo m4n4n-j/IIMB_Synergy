@@ -6,6 +6,14 @@ A Progressive Web App for IIM Bangalore students to automate networking through 
 
 ### Prerequisites
 - Node.js & npm
+
+**Windows PowerShell Note:** To run npm scripts on Windows, you may need to set the execution policy. Open PowerShell as Administrator and run:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+After this, you can run `npm run dev` normally.
 - Python 3.8+
 - Supabase Account
 

@@ -19,7 +19,7 @@ const INTENTS = [
     { id: 'sports', label: 'Sports/Activity Buddy' },
 ]
 
-export default function Onboarding() {
+export default function EditProfile() {
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [user, setUser] = useState<any>(null)
@@ -91,8 +91,6 @@ export default function Onboarding() {
             bio: formData.intent, // Mapping intent to bio
         }
 
-        console.log('Submitting payload:', payload)
-
         const { error } = await supabase
             .from('users')
             .upsert(payload)
@@ -110,28 +108,18 @@ export default function Onboarding() {
     return (
         <div className="min-h-screen bg-white pb-20">
             {/* Header */}
-            <div className="flex items-center p-4 border-b border-gray-100">
+            <div className="flex items-center p-4 border-b border-gray-100 sticky top-0 bg-white z-10">
                 <button onClick={() => router.back()} className="p-2">
                     <ChevronLeft className="h-6 w-6 text-gray-900" />
                 </button>
-                <h1 className="flex-1 text-center text-lg font-bold text-gray-900 mr-8">Signal Profile</h1>
+                <h1 className="flex-1 text-center text-lg font-bold text-gray-900 mr-8">Edit Profile</h1>
             </div>
 
-            {/* Progress Dots */}
-            <div className="flex justify-center gap-2 py-6">
-                <div className="h-2 w-2 rounded-full bg-[#B91C1C]/20"></div>
-                <div className="h-2 w-2 rounded-full bg-[#B91C1C]"></div>
-                <div className="h-2 w-2 rounded-full bg-[#B91C1C]/20"></div>
-                <div className="h-2 w-2 rounded-full bg-[#B91C1C]/20"></div>
-            </div>
-
-            <form onSubmit={handleSubmit} className="px-6 space-y-8">
+            <form onSubmit={handleSubmit} className="px-6 space-y-8 mt-6">
 
                 {/* Name Section */}
                 <div className="space-y-4">
-                    <h2 className="text-2xl font-bold text-gray-900">
-                        {formData.full_name ? `Hi, ${formData.full_name.split(' ')[0]}! 👋` : 'What should we call you?'}
-                    </h2>
+                    <label className="block text-sm font-bold text-gray-900">Full Name</label>
                     <input
                         type="text"
                         required
@@ -144,11 +132,8 @@ export default function Onboarding() {
 
                 {/* Interests Section */}
                 <div className="space-y-4">
-                    <label className="block text-2xl font-bold text-gray-900 mb-2">
+                    <label className="block text-sm font-bold text-gray-900 mb-2">
                         Interests & Hobbies
-                        <span className="block text-sm font-normal text-gray-500 mt-1">
-                            We use these to find someone you'll actually click with! 🤝
-                        </span>
                     </label>
 
                     <div className="flex flex-wrap gap-3">
@@ -176,8 +161,7 @@ export default function Onboarding() {
 
                 {/* Intent Section */}
                 <div className="space-y-4">
-                    <h2 className="text-2xl font-bold text-gray-900">What's Your Intent?</h2>
-                    <p className="text-gray-700">What are you primarily looking for?</p>
+                    <label className="block text-sm font-bold text-gray-900">What's Your Intent?</label>
 
                     <div className="space-y-3">
                         {INTENTS.map(intent => {
@@ -203,19 +187,7 @@ export default function Onboarding() {
                                 </div>
                             )
                         })}
-
-                        {/* Add Yours Placeholder */}
-                        <div className="flex items-center p-4 rounded-xl border-2 border-gray-200 border-dashed text-gray-500">
-                            <Plus className="h-5 w-5 mr-3" />
-                            <span>Add Yours</span>
-                        </div>
                     </div>
-                </div>
-
-                {/* Hidden fields for MVP simplicity */}
-                <div className="hidden">
-                    <input type="number" value={formData.year} onChange={e => setFormData({ ...formData, year: parseInt(e.target.value) })} placeholder="Year" />
-                    <input type="text" value={formData.section} onChange={e => setFormData({ ...formData, section: e.target.value })} placeholder="Section" />
                 </div>
 
                 <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-100">
@@ -224,7 +196,7 @@ export default function Onboarding() {
                         disabled={loading}
                         className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-sm text-base font-bold text-white bg-[#B91C1C] hover:bg-[#991B1B] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#B91C1C] disabled:opacity-50"
                     >
-                        {loading ? <Loader2 className="animate-spin" /> : 'Save & Continue'}
+                        {loading ? <Loader2 className="animate-spin" /> : 'Save Changes'}
                     </button>
                 </div>
             </form>

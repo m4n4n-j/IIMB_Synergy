@@ -62,7 +62,7 @@ export default function Home() {
           </p>
         </div>
 
-        <form onSubmit={handleLogin} className="mt-12 space-y-6">
+        <form onSubmit={handleLogin} className="mt-8 space-y-6">
           <div className="space-y-2 text-left">
             <label htmlFor="email" className="block text-sm font-medium text-white/90">
               Your IIMB Email
@@ -79,6 +79,12 @@ export default function Home() {
             />
           </div>
 
+          {message && (
+            <div className={`text-sm font-medium rounded-lg p-3 ${message.includes('Check') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+              {message}
+            </div>
+          )}
+
           <div>
             <button
               type="submit"
@@ -92,12 +98,6 @@ export default function Home() {
           <p className="text-xs text-white/70 px-4">
             We'll send a secure login link to your IIMB email. No password required.
           </p>
-
-          {message && (
-            <div className={`text-sm font-medium rounded-lg p-3 ${message.includes('Check') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-              {message}
-            </div>
-          )}
         </form>
       </div>
     </div>

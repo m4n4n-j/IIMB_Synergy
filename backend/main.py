@@ -15,7 +15,7 @@ app = FastAPI(title="Synapse Lite Matching Engine")
 # CORS configuration
 origins = [
     "http://localhost:3000",
-    "https://synapse-lite.vercel.app",
+    "https://iimb-synergy.vercel.app/",
 ]
 
 app.add_middleware(

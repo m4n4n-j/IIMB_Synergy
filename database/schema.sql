@@ -3,7 +3,7 @@ create extension if not exists "uuid-ossp";
 
 -- Enums
 create type program_enum as enum ('PGP', 'EPGP', 'PHD', 'FPM', 'EXEC');
-create type activity_type_enum as enum ('Lunch', 'Coffee', 'Walk', 'Sport');
+create type activity_type_enum as enum ('Lunch', 'Coffee', 'Walk', 'Sport', 'Study', 'Hangout', 'Chat');
 create type slot_status_enum as enum ('Open', 'Matched');
 
 -- Users Table
